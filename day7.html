@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <button onclick="GetAnimalData()">Get Animal Data</button>
+    <script>
+        // function GetAnimalData(){
+            // using promisified syntax
+
+            // fetch("https://fakerapi.it/api/v1/persons")
+            //     .then(function(response){
+            //         response.json()
+            //             .then(function(finalData){
+            //                 console.log(finalData);
+            //             })
+            //     })
+
+            // using async await syntax
+            // }
+
+            // Fetch - it is used to render the data on webpage under the hood, the api call gets executed and data is shown on webpage.
+        async function GetAnimalData(){
+            const response = await fetch("https://fakerapi.it/api/v1/persons")
+            const finalData = await response.json()
+            // console.log(finalData);
+            document.getElementById("container").innerHTML = JSON.stringify(finalData);
+        }
+    </script>
+</body>
+</html>
